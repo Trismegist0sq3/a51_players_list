@@ -70,8 +70,7 @@ l
 ---
 
 ## License
+This project is licensed under the GNU General Public License v3.0 — see the [LICENSE](./LICENSE) file for details.
 
-This project is released under the **MIT License**.
-Feel free to fork or modify it to add your own filters or servers.
 
 ---

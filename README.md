@@ -61,6 +61,111 @@ l
 
 ---
 
+## DesktopInfo Integration (Windows)
+
+You can display the player list directly on your Windows desktop using DesktopInfo.
+
+### Download DesktopInfo
+
+Download the ZIP version from:
+
+https://www.glenn.delahoy.com/downloads/desktopinfo/DesktopInfo3220.zip
+
+---
+
+### Extract DesktopInfo
+
+Example:
+
+```text
+C:\Users\PLAY\Downloads\DesktopInfo\
+```
+
+After extraction, the folder should contain:
+
+```text
+DesktopInfo.exe
+desktopinfo.ini
+```
+
+---
+
+### Configure DesktopInfo Startup
+
+Press:
+
+```text
+Win + R
+```
+
+Run:
+
+```text
+shell:startup
+```
+
+This opens your Windows Startup folder.
+
+Create a shortcut in that folder pointing to:
+
+```text
+C:\Users\PLAY\Downloads\DesktopInfo\DesktopInfo.exe
+```
+
+---
+
+### Configure Shortcut Target
+
+Edit the shortcut properties and modify the **Target** field so it includes your custom INI file:
+
+```text
+"C:\Users\PLAY\Downloads\DesktopInfo\DesktopInfo.exe" "C:\Users\PLAY\Documents\scripts\a51_players_list\a51_players_list.ini"
+```
+
+This will automatically launch DesktopInfo at login using the included configuration.
+
+---
+
+### Example DesktopInfo Configuration
+
+Example `a51_players_list.ini`:
+
+```ini
+[options]
+top=20
+right=5
+width=350
+
+font-face=Consolas
+font-size=10
+
+text-color=ffffff
+background-color=000000
+background-opacity=150
+
+script=C:\Users\PLAY\Documents\scripts\a51_players_list\a51_players_list.ps1
+
+[items]
+CMD=color:00ff00,active:1,interval:3600,text: ,file:cmd.exe,parameters:/c echo Area 51 Players,display:%4
+
+CMD=active:1,interval:5,text: ,file:powershell.exe,parameters:-ExecutionPolicy Bypass -File "<script>",display:%4
+```
+
+---
+
+### Example Desktop Output
+
+```text
+Area 51 Players
+marigold
+yosoy
+l
+```
+
+---
+````
+
+
 ## Notes
 
 * The script removes bot names using a built-in exclusion list.
